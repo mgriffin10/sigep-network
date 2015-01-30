@@ -1,0 +1,39 @@
+<% if !flash[:notice].blank? %>
+	<div class="notice">
+	<%= flash[:notice] %>
+	</div>
+<% end %>
+
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="profiles show">
+	<h2>Show Profile</h2>
+
+	<table summary="Profile detailed view">
+		<tr>
+			<th>Name</th>
+			<td><%= @profile.first_name %></td>
+		</tr>
+		<tr>
+			<th>Industry</th>
+			<td><%= @profile.industry %></td>
+		</tr>
+		<tr>
+			<th>Class Year</th>
+			<td><%= @profile.class_year %></td>
+		</tr>
+		<tr>
+			<th>Location</th>
+			<td><%= @profile.residence_city %></td>
+		</tr>
+		<tr>
+			<th>Email Address</th>
+			<td><%= @profile.email %></td>
+		</tr>
+		<tr>
+			<th>Last Update</th>
+			<td><%= @profile.updated_at %></td>
+		</tr>
+	</table>
+
+</div>

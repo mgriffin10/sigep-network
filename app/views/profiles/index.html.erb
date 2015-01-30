@@ -1,0 +1,37 @@
+<% if !flash[:notice].blank? %>
+	<div class="notice">
+	<%= flash[:notice] %>
+	</div>
+<% end %>
+
+<div class"profiles index">
+	<h2>Profiles</h2>
+
+	<%= link_to("Add New Profile", {:action => 'new'}, :class => 'action new') %>
+
+	<table class="listing" summary="Profile list">
+		<tr class="header">
+			<th>&nbsp;</th>
+			<th>Name</th>
+			<th>Industry</th>
+			<th>Class Year</th>
+			<th>Location</th>
+			<th>Email Address</th>			
+		</tr>
+		<% @profiles.each do |profile| %>
+		<tr>
+			<td><%= profile.first_name%></td>
+			<td><%= profile.industry %></td>
+			<td><%= profile.class_year %></td>			
+			<td class="center"><%= profile.residence_city %></td>
+			<td class="center"><%= profile.email %></td>
+			<td class="actions">
+				<%= link_to("Show", {:action => 'show', :id => profile.id}, :class => 'action show') %>
+				<%= link_to("Edit", {:action => 'edit', :id => profile.id}, :class => 'action edit') %>
+				<%= link_to("Delete", {:action => 'delete', :id => profile.id}, :class => 'action delete') %>
+			</td>
+		</tr>
+	</table>
+	
+	<% end %>
+</div>

@@ -1,0 +1,48 @@
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="profiles new">
+	<h2>Create Profile</h2>
+
+	<%= form_for(:profile, :url => {:action => 'create'}) do |f| %>
+
+		<table summary="Profile form fields">
+			<tr>
+				<th>First Name</th>
+				<td><%= f.text_field(:first_name) %></td>
+			</tr>
+			<tr>
+				<th>Last Name</th>
+				<td><%= f.text_field(:last_name) %></td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td><%= f.text_field(:email) %></td>
+			</tr>
+			<tr>
+				<th>Industry</th>
+				<td><%= f.text_field(:industry) %></td>
+			</tr>
+			<tr>
+				<th>Class Year</th>
+				<td><%= f.text_field(:class_year) %></td>
+			</tr>
+			<tr>
+				<th>City</th>
+				<td><%= f.text_field(:residence_city) %></td>
+			</tr>
+			<tr>
+				<th>State</th>
+				<td><%= f.text_field(:residence_state) %></td>
+			</tr>
+			<tr>
+				<th>Country</th>
+				<td><%= f.text_field(:residence_country) %></td>
+			</tr>
+		</table>
+
+		<div class="form-buttons">
+			<%= submit_tag("Create Profile") %>
+		</div>
+
+	<% end %>
+</div>
