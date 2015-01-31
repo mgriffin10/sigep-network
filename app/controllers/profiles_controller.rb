@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
 
-  layout false
+ layout "profile"
   
   def index
     @profiles = Profile.all
@@ -17,7 +17,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     if @profile.save
-      flash[:notice] = "Profile '#{@profile.first_name}'  created successfully."
+      flash[:notice] = "Profile #{@profile.first_name} #{@profile.last_name} created successfully."
 			redirect_to(:action => 'index')
 		else
 			render('new')
