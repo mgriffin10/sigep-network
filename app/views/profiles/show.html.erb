@@ -12,7 +12,7 @@
 	<table summary="Profile detailed view">
 		<tr>
 			<th>Name</th>
-			<td><%= @profile.first_name %></td>
+			<td><%= @profile.first_name + " " + @profile.last_name %></td>
 		</tr>
 		<tr>
 			<th>Industry</th>
@@ -24,7 +24,9 @@
 		</tr>
 		<tr>
 			<th>Location</th>
-			<td><%= @profile.residence_city %></td>
+			<td><%= @profile.residence_city + ", " + 
+					@profile.residence_state + " " +
+					@profile.residence_country %></td>
 		</tr>
 		<tr>
 			<th>Email Address</th>

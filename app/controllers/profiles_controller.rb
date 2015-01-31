@@ -31,7 +31,7 @@ class ProfilesController < ApplicationController
   def update
     @profile = Profile.find(params[:id])
     if @profile.update_attributes(profile_params)
-      flash[:notice] = "Profile udpated successfully."
+      flash[:notice] = "Profile udpated success fully."
       redirect_to(:action => 'show', :id => @profile.id)
 		else
 			render('edit')
@@ -52,7 +52,7 @@ class ProfilesController < ApplicationController
 	private
 
   def profile_params
-    params.require(:profile).permit(:first_name,
+    params.require(:profile ).permit(:first_name,
                                     :last_name,
                                     :class_year,
                                     :residence_state,

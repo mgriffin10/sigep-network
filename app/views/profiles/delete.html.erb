@@ -1,13 +1,13 @@
-<% link_to ("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
 
-<div class="subjects delete">
+<div class="profiles delete">
 	<h2>Delete Subject</h2>
 
-	<% form_tag({:action => 'dest roy', :id => @subject.id}) do %>
+	<%= form_tag({:action => 'destroy', :id => @profile.id}) do %>
 
-		<p>Are you sure you want to premanently delete this subject?</p>
+		<p>Are you sure you want to premanently delete this profile?</p>
 
-		<p class="reference-name"><%= @subject.name %></p>
+		<p class="reference-name"><%= @profile.first_name + " " + @profile.last_name %></p>
 
 		<div class="form-buttons">
 			<%= submit_tag("Delete Subject") %>
