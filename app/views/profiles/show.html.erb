@@ -21,8 +21,11 @@
 		<tr>
 			<th>Location</th>
 			<td><%= @profile.residence_city + ", " + 
-					@profile.residence_state + " " +
-					@profile.residence_country %></td>
+					@profile.residence_state %></td>
+		</tr>
+		<tr>
+			<th>Country</th>
+			<td><%=	@profile.residence_country %></td>
 		</tr>
 		<tr>
 			<th>Email Address</th>

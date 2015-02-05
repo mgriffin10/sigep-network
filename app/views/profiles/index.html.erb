@@ -11,6 +11,7 @@
 			<th>Industry</th>
 			<th>Class Year</th>
 			<th>Location</th>
+			<th>Country</th>
 			<th>Email Address</th>
 			<th>Actions</th>				
 		</tr>
@@ -20,8 +21,8 @@
 			<td><%= profile.industry %></td>
 			<td><%= profile.class_year %></td>			
 			<td class="center"><%= profile.residence_city + ", " + 
-								   profile.residence_state + " " + 
-								   profile.residence_country %></td>
+								   profile.residence_state %></td>
+			<td class="center"><%= profile.residence_country %></td>			   	
 			<td class="center"><%= profile.email %></td>
 			<td class="actions">
 				<%= link_to("Show", {:action => 'show', :id => profile.id}, :class => 'action show') %>
