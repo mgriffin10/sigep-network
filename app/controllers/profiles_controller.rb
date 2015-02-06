@@ -21,13 +21,16 @@ class ProfilesController < ApplicationController
 
   def new
     @profile = Profile.new()
+    @user = User.find(params[:id])
   end
 
   def create
     @profile = Profile.new(profile_params)
+    user_id = session[:user_id]
+    @profile.user_id = user_id
     if @profile.save
       flash[:notice] = "Profile #{@profile.first_name} #{@profile.last_name} created successfully."
-			redirect_to(:action => 'index')
+			redirect_to(:action => 'show', :id => user_id, :user_id => true)
 		else
 			render('new')
 		end

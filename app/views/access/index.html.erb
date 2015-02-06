@@ -5,8 +5,11 @@
 	<div class="identity">Logged in as: <%= "#{@user.first_name}" %></div>
 	<ul>
 		<li><%= link_to("Network", :controller => "profiles") %></li>
-		<li><%= link_to("Profile", :controller=> "profiles", 
-									:action => "show", :id => @user.id, :user_id => true) %></li>
+		<% if profile_exists? %>
+			<li><%= link_to("Profile", :controller=> "profiles", :action => "show", :id => @user.id, :user_id => true) %></li>
+		<% else %>
+			<li><%= link_to("Create Profile", :controller => "profiles", :action => "new", :id => @user.id) %></li>
+		<% end %>
 		<li><%= link_to("User Account", :controller=> "users", :action => "show", :id => @user.id) %></li>
 		<li><%= link_to("Logout", :action => "logout") %></li>
 	</ul>

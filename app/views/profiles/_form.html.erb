@@ -3,15 +3,15 @@
 <table summary="Profile form fields">
 	<tr>
 		<th>First Name</th>
-		<td><%= f.text_field(:first_name) %></td>
+		<td><%= f.text_field(:first_name, :value => @user.first_name) %></td>
 	</tr>
 	<tr>
 		<th>Last Name</th>
-		<td><%= f.text_field(:last_name) %></td>
+		<td><%= f.text_field(:last_name, :value => @user.last_name) %></td>
 	</tr>
 	<tr>
 		<th>Email</th>
-		<td><%= f.text_field(:email) %></td>
+		<td><%= f.text_field(:email, :value => @user.email) %></td>
 	</tr>
 	<tr>
 		<th>Industry</th>
@@ -33,4 +33,5 @@
 		<th>Country</th>
 		<td><%= f.text_field(:residence_country) %></td>
 	</tr>
+
 </table>
