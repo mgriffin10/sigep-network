@@ -1,9 +1,9 @@
 <%= link_to("<< Main Menu", {:controller => 'access', :action => 'index'}, :class => 'back-link') %>
 
-<div class="profiles edit">
-	<h2>Update Profile</h2>
+<div class="users edit">
+	<h2>Update User Information</h2>
 
-	<%= form_for(:profile, :url => {:action => 'update', :id => @profile.id}) do |f| %>
+	<%= form_for(:user, :url => {:action => 'update', :id => @user.id}) do |f| %>
 
 		<%= render(:partial => "form", :locals => {:f => f}) %>
 

@@ -1,12 +1,13 @@
-<% @page_title = "User Menu" %>
+<% @page_title = "Main Menu" %>
 
 <div class="menu">
-	<h2>User Menu</h2>
-	<div class="identity">Logged in as:</div>
+	<h2>Main Menu</h2>
+	<div class="identity">Logged in as: <%= "#{@user.first_name}" %></div>
 	<ul>
 		<li><%= link_to("Network", :controller => "profiles") %></li>
-		<li><%= link_to("Profile", "#") %></li>
-		<li><%= link_to("User Menu", '#') %></li>
+		<li><%= link_to("Profile", :controller=> "profiles", 
+									:action => "show", :id => @user.id, :user_id => true) %></li>
+		<li><%= link_to("User Account", :controller=> "users", :action => "show", :id => @user.id) %></li>
 		<li><%= link_to("Logout", :action => "logout") %></li>
 	</ul>
 </div>

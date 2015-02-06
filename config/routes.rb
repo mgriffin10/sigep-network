@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
  
-  root "main#index"
+  root "access#index"
 
-  get 'admin', :to => "access#index"
-
-  # get 'main/index'
   # Default route matcher
   match ':controller(/:action(/:id(.:format)))', :via => [:get, :post]
   

@@ -5,7 +5,8 @@ class AccessController < ApplicationController
  before_action :confirm_logged_in, :except => [:login,:attempt_login,:logout]
 
   def index
-  	#display text and link
+    user_id = session[:user_id]
+    @user = User.find(user_id)
   end
 
   def login

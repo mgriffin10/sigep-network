@@ -9,7 +9,14 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.find(params[:id])
+    if params[:user_id]
+      user_id = params[:id]
+      @user = User.find(user_id)
+      profile_id = lookup_profile_id(user_id)
+      @profile = Profile.find(profile_id)
+    else
+      @profile = Profile.find(params[:id])
+    end
   end
 
   def new
@@ -33,7 +40,7 @@ class ProfilesController < ApplicationController
   def update
     @profile = Profile.find(params[:id])
     if @profile.update_attributes(profile_params)
-      flash[:notice] = "Profile udpated success fully."
+      flash[:notice] = "Profile udpated successfully."
       redirect_to(:action => 'show', :id => @profile.id)
 		else
 			render('edit')
@@ -63,5 +70,10 @@ class ProfilesController < ApplicationController
                                     :industry,
                                     :email)
 	end
+
+  def lookup_profile_id(user_id)
+    profile = Profile.where(:user_id => user_id).first
+    profile.id
+  end
 
 end

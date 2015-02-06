@@ -1,9 +1,14 @@
 <% @page_title = "#{@profile.first_name} #{@profile.last_name}" %>
 
-<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+<% if !@user.blank? && @profile.user_id == @user.id %>
+	<%= link_to("<< Main Menu", {:controller => 'access', :action => 'index'}, :class => 'back-link') %>
+<% end %>
+<br>
+<br>
+<%= link_to("<< Back to Network", {:action => 'index'}, :class => 'back-link') %>
 
 <div class="profiles show">
-	<h2>Show Profile</h2>
+	<h2><%= @profile.first_name + " " + @profile.last_name %></h2>
 
 	<table summary="Profile detailed view">
 		<tr>
@@ -36,5 +41,10 @@
 			<td><%= @profile.updated_at %></td>
 		</tr>
 	</table>
-
+	<br>
+	<div>
+		<% if !@user.blank? && @profile.user_id == @user.id %>
+			<%= link_to("Edit Profile", {:action => 'edit', :id => @profile.id}) %>
+		<% end %>
+	</div>
 </div>

@@ -1,13 +1,9 @@
 class MainController < ApplicationController
   
-  layout false
+  layout 'application'
 
   def index
   	render('index')
   end
-
-  def profiles
-  	render('profiles')
-  end
-
+  
 end

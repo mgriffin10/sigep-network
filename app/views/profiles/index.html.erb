@@ -1,5 +1,7 @@
 <% @page_title = "Profiles" %>
 
+<%= link_to("<< Main Menu", {:controller => 'access', :action => 'index'}, :class => 'back-link') %>
+
 <div class"profiles index">
 	<h2>Profiles</h2>
 
@@ -13,7 +15,7 @@
 			<th>Location</th>
 			<th>Country</th>
 			<th>Email Address</th>
-			<th>Actions</th>				
+			<th>Profile</th>				
 		</tr>
 		<% @profiles.each do |profile| %>
 		<tr class="<%= cycle('odd', 'even') %>">
@@ -25,9 +27,7 @@
 			<td class="center"><%= profile.residence_country %></td>			   	
 			<td class="center"><%= profile.email %></td>
 			<td class="actions">
-				<%= link_to("Show", {:action => 'show', :id => profile.id}, :class => 'action show') %>
-				<%= link_to("Edit", {:action => 'edit', :id => profile.id}, :class => 'action edit') %>
-				<%= link_to("Delete", {:action => 'delete', :id => profile.id}, :class => 'action delete') %>
+				<%= link_to("View", {:action => 'show', :id => profile.id}, :class => 'action show') %>
 			</td>
 		</tr>
 		<% end %>
