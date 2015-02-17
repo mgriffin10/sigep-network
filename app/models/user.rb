@@ -9,18 +9,9 @@ class User < ActiveRecord::Base
  	validates :email, 	:presence => true,
   						:length => {:maximum => 100},
   						:uniqueness => true,
-  						:format => {:with => EMAIL_REGEX}
-
-  # First Name
-  	validates :first_name, 	:presence => true,
-  						 	:length => {:maximum => 25}
-
-  # Last Name
-  	validates :last_name , 	:presence => true,
-  						 	:length => {:maximum => 50}
-  
+  						:format => {:with => EMAIL_REGEX}  
   # Password
-  	validates :password, :presence => true
+  validates :password, :presence => true
 
 
 end

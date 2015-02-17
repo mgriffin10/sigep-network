@@ -2,13 +2,13 @@
 
 <div class="menu">
 	<h2>Main Menu</h2>
-	<div class="identity">Logged in as: <%= "#{@user.first_name}" %></div>
+	<div class="identity">Logged in as: <%= "#{@user.email}" %></div>
 	<ul>
 		<li><%= link_to("Network", :controller => "profiles") %></li>
 		<% if profile_exists? %>
 			<li><%= link_to("Profile", :controller=> "profiles", :action => "show", :id => @user.id, :user_id => true) %></li>
 		<% else %>
-			<li><%= link_to("Create Profile", :controller => "profiles", :action => "new", :id => @user.id) %></li>
+			<li><%= link_to("Complete Profile", :controller => "profiles", :action => "new", :id => @user.id) %></li>
 		<% end %>
 		<li><%= link_to("User Account", :controller=> "users", :action => "show", :id => @user.id) %></li>
 		<li><%= link_to("Logout", :action => "logout") %></li>

@@ -1,9 +1,10 @@
-<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+<%= link_to("<< Main Menu", {:controller => 'access', :action => 'index'}, :class => 'back-link') %>
 
 <div class="profiles new">
-	<h2>Create Profile</h2>
+	<h2>Welcome to the SigEp Network!</h2>
+	<h3>Complete your profile to get started.</h3>
 
-	<%= form_for(:profile, :url => {:action => 'create'}) do |f| %>
+	<%= form_for(:profile, :url => {:action => 'create', :id => @user.id}) do |f| %>
 
 		<%= render(:partial => "form", :locals => {:f => f}) %>
 

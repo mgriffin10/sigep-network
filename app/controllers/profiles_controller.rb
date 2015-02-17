@@ -26,11 +26,12 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = Profile.new(profile_params)
-    user_id = session[:user_id]
-    @profile.user_id = user_id
+    @user = User.find(params[:id])
+    @profile.user_id = @user.id
+    @profile.email = @user.email
     if @profile.save
       flash[:notice] = "Profile #{@profile.first_name} #{@profile.last_name} created successfully."
-			redirect_to(:action => 'show', :id => user_id, :user_id => true)
+			redirect_to(:action => 'show', :id => @user.id, :user_id => true)
 		else
 			render('new')
 		end
@@ -43,7 +44,7 @@ class ProfilesController < ApplicationController
   def update
     @profile = Profile.find(params[:id])
     if @profile.update_attributes(profile_params)
-      flash[:notice] = "Profile udpated successfully."
+      flash[:notice] = "Profile updated successfully."
       redirect_to(:action => 'show', :id => @profile.id)
 		else
 			render('edit')

@@ -30,7 +30,7 @@ class Profile < ActiveRecord::Base
   						 		:length => {:maximum => 50}
 
   # Residence State 
-  # nil
+    validates :residence_state, :length => {:maximum => 2}
 
   # Residence Country
   	validates :residence_country, 	:presence => true,
