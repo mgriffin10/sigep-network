@@ -2,6 +2,14 @@ class Profile < ActiveRecord::Base
 
   belongs_to :user
 
+ # =========== SCOPES ============
+
+ scope :search, lambda { |query|
+  where( ["first_name LIKE ? OR last_name LIKE ?", "%#{query}%", "%#{query}%"])}
+
+ 
+ # =========== Form Validation ============
+ 
  # Email
   EMAIL_REGEX = /\A[a-z0-9._%+1]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
  	validates :email, 	:presence => true,

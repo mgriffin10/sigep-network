@@ -1,9 +1,9 @@
-<% @page_title = "Profiles" %>
+<% @page_title = "Profiles Search" %>
 
-<%= link_to("<< Main Menu", {:controller => 'access', :action => 'index'}, :class => 'back-link') %>
+<%= link_to("<< SigEp Network", {:action => 'index'}, :class => 'back-link') %>
 
 <div class"profiles index">
-	<h2>Profiles</h2>
+	<h2>Profiles Search</h2>
 	<div>
 		<%= form_tag({:action => 'search'}) do %>
 	  	<%= label_tag(:q, "Search profiles:") %>

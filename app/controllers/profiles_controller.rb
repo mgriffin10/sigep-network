@@ -8,6 +8,10 @@ class ProfilesController < ApplicationController
     @profiles = Profile.all
   end
 
+  def search
+    @profiles = Profile.search(params[:q])
+  end
+
   def show
     if params[:user_id]
       user_id = params[:id]
