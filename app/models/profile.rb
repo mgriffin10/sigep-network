@@ -3,7 +3,7 @@ class Profile < ActiveRecord::Base
   belongs_to :user
 
  # Email
-  	EMAIL_REGEX = /\A[a-z0-9._%+1]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
+  EMAIL_REGEX = /\A[a-z0-9._%+1]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
  	validates :email, 	:presence => true,
   						:length => {:maximum => 100},
   						:uniqueness => true,
@@ -35,5 +35,19 @@ class Profile < ActiveRecord::Base
   # Residence Country
   	validates :residence_country, 	:presence => true,
   						 			:length => {:maximum => 50}
+
+  # This method associates the attribute ":avatar" with a file attachment
+  has_attached_file :avatar, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
+  },
+  :default_url => "missing.png"
+
+  # Validate the attached image is image/jpg, image/png, etc
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  
+  # Validate the attached image is less than 4 MB
+  validates_with AttachmentSizeValidator, :attributes => :avatar, :less_than => 4.megabytes
 
 end

@@ -4,7 +4,9 @@
 	<h2>Welcome to the SigEp Network!</h2>
 	<h3>Complete your profile to get started.</h3>
 
-	<%= form_for(:profile, :url => {:action => 'create', :id => @user.id}) do |f| %>
+	<%= form_for(:profile, 
+				:multipart => true, 
+				:url => {:action => 'create', :id => @user.id}) do |f| %>
 
 		<%= render(:partial => "form", :locals => {:f => f}) %>
 

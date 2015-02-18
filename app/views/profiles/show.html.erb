@@ -10,6 +10,9 @@
 <div class="profiles show">
 	<h2><%= @profile.first_name + " " + @profile.last_name %></h2>
 
+	<div class="avatar">
+		<%= image_tag @profile.avatar.url(:square) %>
+	</div>
 	<table summary="Profile detailed view">
 		<tr>
 			<th>Name</th>

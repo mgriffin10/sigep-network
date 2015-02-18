@@ -72,7 +72,8 @@ class ProfilesController < ApplicationController
                                     :residence_city,
                                     :residence_country,
                                     :industry,
-                                    :email)
+                                    :email,
+                                    :avatar)
 	end
 
   def lookup_profile_id(user_id)
