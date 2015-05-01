@@ -8,10 +8,13 @@ gem 'rails', '4.2.0'
 gem 'pg'
 
 # Use bootstrap for styling
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.3.4'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '>= 3.2'
+
+# jquery for rails
+gem 'jquery-rails'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'

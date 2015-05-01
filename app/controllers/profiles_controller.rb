@@ -1,7 +1,5 @@
 class ProfilesController < ApplicationController
 
- layout "profile"
-
  before_action :confirm_logged_in
   
   def index
