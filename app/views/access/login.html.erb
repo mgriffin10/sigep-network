@@ -1,22 +1,8 @@
-<% @page_title = "User Login" %>
-
-<div class="login">
-	<%= form_tag(:action => 'attempt_login') do %>
-	<table>
-		<tr>
-			<td><%= label_tag(:email) %></td>
-			<td><%= text_field_tag(:email) %></td>
-		</tr>
-		<tr>
-			<td><%= label_tag(:password) %></td>
-			<td><%= password_field_tag(:password) %></td>
-		</tr>
-		<tr>
-			<td>&nbsp;</td>
-			<td><%= submit_tag("Log In") %></td>
-		</tr>
-	</table>
-	<% end %>
+<%= form_tag({action: "attempt_login"}, method: "post", class: "form-signin") do %>
+	<h2 class="form-signin-heading">Please sign in</h2>
+	<%= text_field_tag 'email', nil, class: 'form-control', id: "email", placeholder: "Email Address", required: true %>
+	<%= password_field_tag 'password', nil, class: "form-control", id: "password", placeholder: "Password", required: true %>
+	<%= submit_tag("Sign in", :class => "btn btn-lg btn-primary btn-block") %>
 	<br>
-	<div><%= link_to("Create User", :controller => 'users', :action => 'new' ) %></div>
-</div>
+	<%= link_to("Create User", :controller => 'users', :action => 'new' ) %>
+<% end %>
