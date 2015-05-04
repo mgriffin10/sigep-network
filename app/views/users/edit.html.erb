@@ -1,15 +1,7 @@
 <%= link_to("<< Main Menu", {:controller => 'access', :action => 'index'}, :class => 'back-link') %>
 
-<div class="users edit">
-	<h2>Update User Information</h2>
-
-	<%= form_for(:user, :url => {:action => 'update', :id => @user.id}) do |f| %>
-
-		<%= render(:partial => "form", :locals => {:f => f}) %>
-
-		<div class="form-buttons">
-			<%= submit_tag("Update") %>
-		</div>
-
-	<% end %>
-</div>
+<h2>Edit User</h2>
+<%= form_for(:user, :url => {:controller => 'users', :action => 'update', :id => @user.id}, :html => {:class => 'user-form'}) do |f| %>
+	<%= render(:partial => "form", :locals => {:f => f}) %>
+	<%= submit_tag("Edit User", :class => "btn btn-default") %>
+<% end %>

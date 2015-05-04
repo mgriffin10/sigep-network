@@ -30,15 +30,9 @@ class Profile < ActiveRecord::Base
 						   	:length => {:maximum => 25},
  						   	:numericality => {:only_integer => true}
 
-  # Industry
-  # nil
-
   # Residence City
   	validates :residence_city, 	:presence => true,
   						 		:length => {:maximum => 50}
-
-  # Residence State 
-    validates :residence_state, :length => {:maximum => 2}
 
   # Residence Country
   	validates :residence_country, 	:presence => true,

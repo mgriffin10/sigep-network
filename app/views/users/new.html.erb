@@ -1,15 +1,8 @@
 <%= link_to("<< Back to Login", {:controller => 'access', :action => 'login'}, :class => 'back-link') %>
 
-<div class="users new">
-	<h2>Create User</h2>
-
-	<%= form_for(:user, :url => {:action => 'create'}) do |f| %>
-
-		<%= render(:partial => "form", :locals => {:f => f}) %>
-
-		<div class="form-buttons">
-			<%= submit_tag("Create User") %>
-		</div>
-
-	<% end %>
-</div>
+<h2>Create User</h2>
+<%= form_for :user, url: { action: 'create'}, html: { class: 'user-form'} do |f| %>
+	<%= render(:partial => "form", :locals => {:f => f}) %>
+	<%= submit_tag("Create User", :class => "btn btn-default") %>
+	<%= submit_tag("Create Profile") %>
+<% end %>
