@@ -8,10 +8,12 @@
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>
-		<%= render 'layouts/header' %>
+		<% if session[:user_id] %>
+			<%= render 'layouts/header' %>
+		<% end %>
 		<div id="wrap">
 			<div id="main" class="container">
-				<% if !flash[:notice].blank? %>
+				<% if !flash[:notice].blank? & !flash[:status].blank? %>
 					<div class="<%= "alert " + flash[:status] %>" >
 					<%= flash[:notice] %>	
 					</div>

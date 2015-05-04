@@ -8,13 +8,10 @@
   padding: 15px;
   margin: 0 auto;
 }
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
+.form-signin .form-signin-heading {
   margin-bottom: 10px;
 }
-.form-signin .checkbox {
-  font-weight: normal;
-}
+
 .form-signin .form-control {
   position: relative;
   height: auto;
@@ -37,3 +34,24 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.login-wrapper {
+  max-width: 450px;
+  padding: 40px 0px;
+  margin: 0 auto;
+}
+
+.login-background {
+  background-color: #28005c;
+  border-radius: 15px;
+}
+
+.crest {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 5px;
+}
+
+
+
+
