@@ -12,7 +12,7 @@
 		<div id="wrap">
 			<div id="main" class="container">
 				<% if !flash[:notice].blank? %>
-					<div class="notice">
+					<div class="<%= "alert " + flash[:status] %>" >
 					<%= flash[:notice] %>	
 					</div>
 				<% end %>

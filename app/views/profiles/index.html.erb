@@ -1,18 +1,13 @@
-<% @page_title = "Profiles" %>
-
-<%= link_to("<< Main Menu", {:controller => 'access', :action => 'index'}, :class => 'back-link') %>
-
 <div class"profiles index">
-	<h2>Profiles</h2>
-	<div>
-		<%= form_tag({:action => 'search'}) do %>
-	  	<%= label_tag(:q, "Search profiles:") %>
-	  	<%= text_field_tag(:q) %>
-	  	<%= submit_tag("Search") %>
+	<h2 class="profile-title">Profiles</h2>
+	<%= form_tag({controller: 'profiles', action: 'search'}, class: 'form-inline profile-search-bar') do %>
+	<div class="form-group">
+	<%= label :q, "Profiles" %>
+  	<%= text_field_tag :q, nil, class: 'form-control', placeholder: "Search" %>
+  	<%= submit_tag("Search", :class => "btn btn-default") %>
+  	</div>
 	<% end %>
-	</div>
-	<br>
-	<table class="listing" summary="Profile list">
+	<table class="table table-condensed table-hover" summary="Profile list">
 		<tr class="header">
 			<th>Name</th>
 			<th>Industry</th>
@@ -20,7 +15,7 @@
 			<th>Location</th>
 			<th>Country</th>
 			<th>Email Address</th>
-			<th>Last Update</th>
+			<th>Last Updated</th>
 			<th>Profile</th>				
 		</tr>
 		<% @profiles.each do |profile| %>
@@ -34,7 +29,7 @@
 			<td class="center"><%= profile.email %></td>
 			<td class="center"><%= profile.updated_at.to_formatted_s(:short) %></td>			
 			<td class="actions">
-				<%= link_to("View", {:action => 'show', :id => profile.id}, :class => 'action show') %>
+				<%= link_to("View", {:action => 'show', :id => profile.id}, :class => 'btn btn-primary') %>
 			</td>
 		</tr>
 		<% end %>

@@ -1,53 +1,59 @@
-<% @page_title = "#{@profile.first_name} #{@profile.last_name}" %>
-
-<% if !@user.blank? && @profile.user_id == @user.id %>
-	<%= link_to("<< Main Menu", {:controller => 'access', :action => 'index'}, :class => 'back-link') %>
-<% end %>
-<br>
-<br>
-<%= link_to("<< Back to Network", {:action => 'index'}, :class => 'back-link') %>
-
-<div class="profiles show">
-	<h2><%= @profile.first_name + " " + @profile.last_name %></h2>
-
-	<div class="avatar">
-		<%= image_tag @profile.avatar.url(:square) %>
-	</div>
-	<table summary="Profile detailed view">
-		<tr>
-			<th>Name</th>
-			<td><%= @profile.first_name + " " + @profile.last_name %></td>
-		</tr>
-		<tr>
-			<th>Industry</th>
-			<td><%= @profile.industry %></td>
-		</tr>
-		<tr>
-			<th>Class Year</th>
-			<td><%= @profile.class_year %></td>
-		</tr>
-		<tr>
-			<th>Location</th>
-			<td><%= @profile.residence_city %><%= ", " if !@profile.residence_state.blank? %>
-				<%= @profile.residence_state %></td>
-		</tr>
-		<tr>
-			<th>Country</th>
-			<td><%=	@profile.residence_country %></td>
-		</tr>
-		<tr>
-			<th>Email Address</th>
-			<td><%= @profile.email %></td>
-		</tr>
-		<tr>
-			<th>Last Update</th>
-			<td><%= @profile.updated_at %></td>
-		</tr>
-	</table>
-	<br>
-	<div>
+	<div class="col-md-4">
+		<h2 class="profile-title"><%= @profile.first_name + " " + @profile.last_name %></h2>
+		<div class="avatar">
+			<%= image_tag @profile.avatar.url(:square) %>
+		</div>
+		<br>
+		<table class="table profile-table">
+			<h3>Contact Information</h3>
+			<tr><th>Email Address:</th></tr>
+			<tr><td><%= @profile.email %></td></tr>
+			<tr><th>Last Update:</th></tr>
+			<tr><td><%= @profile.updated_at %></td></tr>
+		</table>
 		<% if !@user.blank? && @profile.user_id == @user.id %>
-			<%= link_to("Edit Profile", {:action => 'edit', :id => @profile.id}) %>
+			<%= link_to "Edit Profile", {:action => 'edit', :id => @profile.id}, class: "btn btn-default" %>
 		<% end %>
 	</div>
-</div>
+
+	<div class="col-md-8">
+		<div class="row">
+			<h3 class="table-title">Personal Information</h3>
+			<table class="table profile-table">
+			<tr>
+				<th>Class Year</th>
+					<td><%= @profile.class_year %></td>
+				</tr>
+				<tr>
+					<th>Location</th>
+					<td><%= @profile.residence_city %><%= ", " if !@profile.residence_state.blank? %>
+						<%= @profile.residence_state %></td>
+				</tr>
+				<tr>
+					<th>Country</th>
+					<td><%=	@profile.residence_country %></td>
+				</tr>
+			</table>
+			<div class="profile-text-area-heading">
+				<strong>Biography</strong>
+			</div>
+			<%=	@profile.bio %>
+		</div>
+		<br>
+		<div class="row">
+			<h3 class="table-title">Professional Details</h3>
+			<table class="table profile-table">
+				<tr>
+					<th>Industry</th>
+					<td><%= @profile.industry %></td>
+				</tr>
+			</table>
+			<div class="profile-text-area-heading">
+				<strong>Job Description</strong>
+			</div>
+			<%= @profile.career_details %>
+			</div>
+	</div>
+	
+	<div class="col-md-4">
+	</div>

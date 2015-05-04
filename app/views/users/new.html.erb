@@ -1,5 +1,3 @@
-<%= link_to("<< Back to Login", {:controller => 'access', :action => 'login'}, :class => 'back-link') %>
-
 <h2>Create User</h2>
 <%= form_for :user, url: { action: 'create'}, html: { class: 'user-form'} do |f| %>
 	<%= render(:partial => "form", :locals => {:f => f}) %>

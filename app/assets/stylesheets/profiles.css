@@ -6,3 +6,34 @@
 	max-width: 330px;
 	padding: 5px;
 }
+
+.profile-search-bar {
+	float:right;
+	max-width: 330px;
+}
+
+.profile-title {
+	float: left;
+}
+
+.table-title {
+	border-bottom: 1px solid #ddd;
+  	padding: 0px 0px 5px 0px;
+}
+
+.profile-table> tbody > tr > td {
+	padding: 4px 0px;
+	border-top: none;
+	line-height: 1.2;
+}
+
+.profile-table > tbody > tr > th {
+	padding: 4px 0px;
+	border-top: none;
+	line-height: 1.2;
+	max-width: 15px;
+}
+
+.profile-text-area-heading {
+	padding-bottom: 5px;
+}

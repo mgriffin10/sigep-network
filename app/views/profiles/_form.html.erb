@@ -1,4 +1,5 @@
 <%= error_messages_for(@profile) %>
+
 <div class="form-group">
 	<%= f.label :first_name, "First Name" %>
 	<%= f.text_field :first_name, class: 'form-control', placeholder: "First name", required: true %>
@@ -17,7 +18,7 @@
 </div>
 <div class="form-group">
 	<%= f.label :career_details, "Job Description" %>
-	<%= f.text_field :career_details, class: 'form-control', placeholder: "Description" %>
+	<%= f.text_area :career_details, class: 'form-control', placeholder: "Description" %>
 </div>
 <div class="form-group">
 	<%= f.label :class_year, "Class Year" %>

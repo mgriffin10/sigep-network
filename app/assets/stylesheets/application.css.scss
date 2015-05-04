@@ -33,6 +33,18 @@ html, body {
   padding-bottom:150px; /* this needs to be bigger than footer height*/
 }
 
+.btn-primary {
+  color: #fff;
+  background-color: #3d0585;
+  border-color: #5706a3;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #5407b8;
+  border-color: #5706a3;
+}
+
 .navbar-brand-custom {
 	float: left;
 	padding: 5px 15px;

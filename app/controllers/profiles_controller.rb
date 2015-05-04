@@ -34,6 +34,7 @@ class ProfilesController < ApplicationController
     @profile.email = @user.email
     if @profile.save
       flash[:notice] = "Profile #{@profile.first_name} #{@profile.last_name} created successfully."
+      flash[:status] = "alert-success"
 			redirect_to(:action => 'show', :id => @user.id, :user_id => true)
 		else
 			render('new')
@@ -48,6 +49,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     if @profile.update_attributes(profile_params)
       flash[:notice] = "Profile updated successfully."
+      flash[:status] = "alert-success"
       redirect_to(:action => 'show', :id => @profile.id)
 		else
 			render('edit')

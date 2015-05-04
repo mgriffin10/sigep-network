@@ -22,9 +22,11 @@ class AccessController < ApplicationController
   		session[:user_id] = authorized_user.id
   		session[:email] = authorized_user.email
   		flash[:notice] = "You are now signed in."
+      flash[:status] = "alert-success"
   		redirect_to(:controller => 'main', :action => 'index')
   	else
   		flash[:notice] = "Invalid email/password combination."
+      flash[:status] = "alert-danger"
   		redirect_to(:action => 'login')
   	end
   end
@@ -33,6 +35,7 @@ class AccessController < ApplicationController
   	session[:user_id] = nil
   	session[:email] = nil
   	flash[:notice] = "Signed out"
+    flash[:status] = "alert-success"
   	redirect_to(:action => "login")
   end
 
