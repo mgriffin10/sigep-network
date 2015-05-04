@@ -25,7 +25,7 @@ class Profile < ActiveRecord::Base
   	validates :last_name , 	:presence => true,
   						 	:length => {:maximum => 50}
   
-  #Class Year
+  # Class Year
 	validates :class_year, 	:presence => true,
 						   	:length => {:maximum => 25},
  						   	:numericality => {:only_integer => true}

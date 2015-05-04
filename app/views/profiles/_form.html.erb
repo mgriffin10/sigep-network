@@ -1,35 +1,49 @@
 <%= error_messages_for(@profile) %>
-<table summary="Profile form fields">
-	<tr>
-		<th>First Name</th>
-		<td><%= f.text_field(:first_name) %></td>
-	</tr>
-	<tr>
-		<th>Last Name</th>
-		<td><%= f.text_field(:last_name) %></td>
-	</tr>
-	<tr>
-		<th>Industry</th>
-		<td><%= f.text_field(:industry) %></td>
-	</tr>
-	<tr>
-		<th>Class Year</th>
-		<td><%= f.text_field(:class_year) %></td>
-	</tr>
-	<tr>
-		<th>City</th>
-		<td><%= f.text_field(:residence_city) %></td>
-	</tr>
-	<tr>
-		<th>State</th>
-		<td><%= f.text_field(:residence_state) %></td>
-	</tr>
-	<tr>
-		<th>Country</th>
-		<td><%= f.text_field(:residence_country) %></td>
-	</tr>
-	<tr>
-		<th>Profile Picture</th>
-		<td><%= f.file_field(:avatar) %></td>
-	</tr>
-</table>
+<div class="form-group">
+	<%= f.label :first_name, "First Name" %>
+	<%= f.text_field :first_name, class: 'form-control', placeholder: "First name", required: true %>
+</div>
+<div class="form-group">
+	<%= f.label :last_name, "Last Name" %>
+	<%= f.text_field :last_name, class: 'form-control', placeholder: "Last name", required: true %>
+</div>
+<div class="form-group">
+	<%= f.label :industry, "Industry" %>
+	<select class="form-control">
+	<% @industries.each do |i| %>
+  		<%= "<option>#{i}</option>".html_safe %>
+	<% end %>
+	</select>
+</div>
+<div class="form-group">
+	<%= f.label :career_details, "Job Description" %>
+	<%= f.text_field :career_details, class: 'form-control', placeholder: "Description" %>
+</div>
+<div class="form-group">
+	<%= f.label :class_year, "Class Year" %>
+	<%= f.text_field :class_year, class: 'form-control', placeholder: "yyyy" %>
+</div>
+<div class="form-group">
+	<%= f.label :residence_city, "City" %>
+	<%= f.text_field :residence_city, class: 'form-control', placeholder: "City of residence" %>
+</div>
+<div class="form-group">
+	<%= f.label :residence_state, "State" %>
+	<select class="form-control">
+	<% @states.each do |i| %>
+  		<%= "<option>#{i}</option>".html_safe %>
+	<% end %>
+	</select>
+</div>
+<div class="form-group">
+	<%= f.label :residence_country, "Country" %>
+	<%= f.text_field :residence_country, class: 'form-control', placeholder: "Country of residence" %>
+</div>
+<div class="form-group">
+	<%= f.label :bio, "Personal Bio" %>
+	<%= f.text_area :bio, class: 'form-control', placeholder: "Share a little about yourself" %>
+</div>
+<div class="form-group">
+	<%= f.label :avatar, "Profile Picture" %>
+	<%= f.file_field(:avatar) %>
+</div>
