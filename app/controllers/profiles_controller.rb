@@ -8,7 +8,11 @@ class ProfilesController < ApplicationController
   end
 
   def search
-    @profiles = Profile.search(params[:q])
+    if !params[:q].match(/\A[0-9]+\Z/)
+      @profiles = Profile.search(params[:q])
+    else
+      @profiles = Profile.search_year(params[:q])
+    end
   end
 
   def show
