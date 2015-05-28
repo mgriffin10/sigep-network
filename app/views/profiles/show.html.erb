@@ -42,10 +42,22 @@
 		<br>
 		<div class="row">
 			<h3 class="table-title">Professional Details</h3>
+			<% if @profile.advanced_degrees %>
+				<div class="profile-text-area-heading">
+					<strong>Advanced Degree</strong>
+					<%= @profile.advanced_degrees %>
+				</div>
+			<% end %>
 			<div class="profile-text-area-heading">
 				<strong>Industry</strong>
 				<%= @profile.industry %>
 			</div>
+			<% if @profile.company_name %>
+				<div class="profile-text-area-heading">
+					<strong>Company</strong>
+					<%= @profile.company_name %>
+				</div>
+			<% end %>
 			<div class="profile-text-area-heading">
 				<strong>Job Description</strong>
 			</div>

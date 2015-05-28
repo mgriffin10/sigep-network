@@ -13,12 +13,20 @@
 	<%= f.select :industry, @industries, {}, {class: 'form-control'} %>
 </div>
 <div class="form-group">
+	<%= f.label :company_name, "Company Name" %>
+	<%= f.text_field :company_name, class: 'form-control', placeholder: "Company name" %>
+</div>
+<div class="form-group">
 	<%= f.label :career_details, "Job Description" %>
 	<%= f.text_area :career_details, class: 'form-control', placeholder: "Description" %>
 </div>
 <div class="form-group">
 	<%= f.label :class_year, "Class Year" %>
 	<%= f.text_field :class_year, class: 'form-control', placeholder: "yyyy" %>
+</div>
+<div class="form-group">
+	<%= f.label :advanced_degrees, "Advanced Degree (optional)" %>
+	<%= f.text_field :advanced_degrees, class: 'form-control', placeholder: "Advanced Degree" %>
 </div>
 <div class="form-group">
 	<%= f.label :residence_city, "City" %>

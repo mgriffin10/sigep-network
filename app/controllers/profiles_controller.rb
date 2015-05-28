@@ -82,8 +82,10 @@ class ProfilesController < ApplicationController
                                     :residence_country,
                                     :industry,
                                     :career_details,
+                                    :company_name,
+                                    :advanced_degrees,
                                     :bio,
-                                    :email,
+                                    :email,                               
                                     :avatar)
 	end
 
