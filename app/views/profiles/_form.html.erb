@@ -10,11 +10,7 @@
 </div>
 <div class="form-group">
 	<%= f.label :industry, "Industry" %>
-	<select class="form-control">
-	<% @industries.each do |i| %>
-  		<%= "<option>#{i}</option>".html_safe %>
-	<% end %>
-	</select>
+	<%= f.select :industry, @industries, {}, {class: 'form-control'} %>
 </div>
 <div class="form-group">
 	<%= f.label :career_details, "Job Description" %>
@@ -30,11 +26,7 @@
 </div>
 <div class="form-group">
 	<%= f.label :residence_state, "State" %>
-	<select class="form-control">
-	<% @states.each do |i| %>
-  		<%= "<option>#{i}</option>".html_safe %>
-	<% end %>
-	</select>
+	<%= f.select :residence_state, @states, {}, {class: 'form-control'}%>
 </div>
 <div class="form-group">
 	<%= f.label :residence_country, "Country" %>

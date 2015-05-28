@@ -2,5 +2,4 @@
 <%= form_for :user, url: { action: 'create'}, html: { class: 'user-form'} do |f| %>
 	<%= render(:partial => "form", :locals => {:f => f}) %>
 	<%= submit_tag("Create User", :class => "btn btn-default") %>
-	<%= submit_tag("Create Profile") %>
 <% end %>

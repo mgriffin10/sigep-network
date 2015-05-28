@@ -42,16 +42,14 @@
 		<br>
 		<div class="row">
 			<h3 class="table-title">Professional Details</h3>
-			<table class="table profile-table">
-				<tr>
-					<th>Industry</th>
-					<td><%= @profile.industry %></td>
-				</tr>
-			</table>
+			<div class="profile-text-area-heading">
+				<strong>Industry</strong>
+				<%= @profile.industry %>
+			</div>
 			<div class="profile-text-area-heading">
 				<strong>Job Description</strong>
 			</div>
-			<%= @profile.career_details %>
+				<%= @profile.career_details %>
 			</div>
 	</div>
 	
