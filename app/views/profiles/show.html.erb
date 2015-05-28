@@ -9,7 +9,7 @@
 			<tr><th>Email Address:</th></tr>
 			<tr><td><%= @profile.email %></td></tr>
 			<tr><th>Last Update:</th></tr>
-			<tr><td><%= @profile.updated_at %></td></tr>
+			<tr><td><%= @profile.updated_at.to_time.strftime('%B %e, %Y at %l:%M %p') %></td></tr>
 		</table>
 		<% if !@user.blank? && @profile.user_id == @user.id %>
 			<%= link_to "Edit Profile", {:action => 'edit', :id => @profile.id}, class: "btn btn-default" %>
