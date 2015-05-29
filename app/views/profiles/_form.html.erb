@@ -45,6 +45,10 @@
 	<%= f.text_area :bio, class: 'form-control', placeholder: "Share a little about yourself" %>
 </div>
 <div class="form-group">
+	<%= f.label :linkedin_link, "LinkedIn Link" %>
+	<%= f.text_field :linkedin_link, class: 'form-control', placeholder: "http:// " %>
+</div>
+<div class="form-group">
 	<%= f.label :avatar, "Profile Picture" %>
 	<%= f.file_field(:avatar) %>
 </div>

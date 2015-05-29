@@ -14,6 +14,9 @@
 		<% if !@user.blank? && @profile.user_id == @user.id %>
 			<%= link_to "Edit Profile", {:action => 'edit', :id => @profile.id}, class: "btn btn-default" %>
 		<% end %>
+		<% if @profile.linkedin_link %>
+			<%= link_to "LinkedIn Profile", @profile.linkedin_link %>
+		<% end %>
 	</div>
 
 	<div class="col-md-8">

@@ -85,7 +85,8 @@ class ProfilesController < ApplicationController
                                     :company_name,
                                     :advanced_degrees,
                                     :bio,
-                                    :email,                               
+                                    :email,
+                                    :linkedin_link,                               
                                     :avatar)
 	end
 
