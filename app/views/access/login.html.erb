@@ -1,8 +1,12 @@
-<%= form_tag({action: "attempt_login"}, method: "post", class: "form-signin") do %>
-	<h2 class="form-signin-heading">Please sign in</h2>
-	<%= text_field_tag 'email', nil, class: 'form-control', id: "email", placeholder: "Email Address", required: true %>
-	<%= password_field_tag 'password', nil, class: "form-control", id: "password", placeholder: "Password", required: true %>
-	<%= submit_tag("Sign in", :class => "btn btn-lg btn-primary btn-block") %>
-	<br>
-	<%= link_to("Create User", :controller => 'users', :action => 'new' ) %>
-<% end %>
+
+<div class="login-wrapper">
+	<%= image_tag('crest.png', :size => '160x200', :class => "crest" ) %>
+	<%= form_tag({action: "attempt_login"}, method: "post", class: "form-signin") do %>
+		<h2 class="form-signin-heading">Please sign in</h2>
+		<%= text_field_tag 'email', nil, class: 'form-control', id: "email", placeholder: "Email Address", required: true %>
+		<%= password_field_tag 'password', nil, class: "form-control", id: "password", placeholder: "Password", required: true %>
+		<%= submit_tag("Sign in", :class => "btn btn-lg btn-primary btn-block") %>
+		<br>
+		<%= link_to("Create User", :controller => 'users', :action => 'new' ) %>
+	<% end %>
+</div>

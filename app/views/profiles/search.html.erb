@@ -1,18 +1,13 @@
-<% @page_title = "Profiles Search" %>
-
-<%= link_to("<< SigEp Network", {:action => 'index'}, :class => 'back-link') %>
-
 <div class"profiles index">
-	<h2>Profiles Search</h2>
-	<div>
-		<%= form_tag({:action => 'search'}) do %>
-	  	<%= label_tag(:q, "Search profiles:") %>
-	  	<%= text_field_tag(:q) %>
-	  	<%= submit_tag("Search") %>
+	<h2 class="profile-title">Profiles</h2>
+		<%= form_tag({:action => 'search'}, class: 'form-inline profile-search-bar') do %>
+		<div class="form-group">
+	  	<%= label_tag(:q, "Profiles") %>
+	  	<%= text_field_tag(:q, nil, class: 'form-control', placeholder: "Search") %>
+	  	<%= submit_tag("Search", :class => "btn btn-default") %>
+	  	</div>
 	<% end %>
-	</div>
-	<br>
-	<table class="listing" summary="Profile list">
+	<table class="table table-condensed table-hover">
 		<tr class="header">
 			<th>Name</th>
 			<th>Industry</th>
@@ -34,7 +29,7 @@
 			<td class="center"><%= profile.email %></td>
 			<td class="center"><%= profile.updated_at.to_formatted_s(:short) %></td>			
 			<td class="actions">
-				<%= link_to("View", {:action => 'show', :id => profile.id}, :class => 'action show') %>
+				<%= link_to("View", {:action => 'show', :id => profile.id}, :class => 'btn btn-primary') %>
 			</td>
 		</tr>
 		<% end %>

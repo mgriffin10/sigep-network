@@ -27,7 +27,7 @@
 								<%= profile.residence_state %></td>
 			<td class="center"><%= profile.residence_country %></td>			   	
 			<td class="center"><%= profile.email %></td>
-			<td class="center"><%= profile.updated_at.to_formatted_s(:short) %></td>			
+			<td class="center"><%= profile.updated_at.to_time.strftime('%B %e, %Y') %></td>			
 			<td class="actions">
 				<%= link_to("View", {:action => 'show', :id => profile.id}, :class => 'btn btn-primary') %>
 			</td>

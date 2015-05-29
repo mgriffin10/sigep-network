@@ -5,8 +5,23 @@ class Profile < ActiveRecord::Base
  # =========== SCOPES ============
 
  scope :search, lambda { |query|
-  where( ["first_name LIKE ? OR last_name LIKE ?", "%#{query}%", "%#{query}%"])}
+  where( ["first_name LIKE ? 
+          OR last_name LIKE ?
+          OR industry LIKE ?
+          OR email LIKE ?
+          OR residence_city LIKE ?
+          OR residence_country LIKE ?
+          OR residence_state LIKE ?", 
+          "%#{query}%", 
+          "%#{query}%",
+          "%#{query}%",
+          "%#{query}%",
+          "%#{query}%",
+          "%#{query}%",
+          "%#{query}%"])}
 
+  scope :search_year, lambda { |query|
+    where ( ["class_year = ? ", query])}
  
  # =========== Form Validation ============
  

@@ -8,7 +8,7 @@
 		</tr>
 		<tr>
 			<th>Last Update</th>
-			<td><%= @user.updated_at %></td>
+			<td><%= @user.updated_at.to_time.strftime('%B %e, %Y at %l:%M %p') %></td>
 		</tr>
 	</table>
 

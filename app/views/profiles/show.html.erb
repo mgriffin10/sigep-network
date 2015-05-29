@@ -1,5 +1,5 @@
 	<div class="col-md-4">
-		<h2 class="profile-title"><%= @profile.first_name + " " + @profile.last_name %></h2>
+		<h2><%= @profile.first_name + " " + @profile.last_name %></h2>
 		<div class="avatar">
 			<%= image_tag @profile.avatar.url(:square) %>
 		</div>
@@ -9,10 +9,13 @@
 			<tr><th>Email Address:</th></tr>
 			<tr><td><%= @profile.email %></td></tr>
 			<tr><th>Last Update:</th></tr>
-			<tr><td><%= @profile.updated_at %></td></tr>
+			<tr><td><%= @profile.updated_at.to_time.strftime('%B %e, %Y at %l:%M %p') %></td></tr>
 		</table>
 		<% if !@user.blank? && @profile.user_id == @user.id %>
 			<%= link_to "Edit Profile", {:action => 'edit', :id => @profile.id}, class: "btn btn-default" %>
+		<% end %>
+		<% if @profile.linkedin_link %>
+			<%= link_to "LinkedIn Profile", @profile.linkedin_link %>
 		<% end %>
 	</div>
 
@@ -43,16 +46,27 @@
 		<div class="row">
 			<h3 class="table-title">Professional Details</h3>
 			<table class="table profile-table">
+				<% if @profile.advanced_degrees %>
+					<tr>
+					<th>Advanced Degree</th>
+						<td><%= @profile.advanced_degrees %></td>
+					</tr>
+				<% end %>
 				<tr>
-					<th>Industry</th>
+				<th>Industry</th>
 					<td><%= @profile.industry %></td>
 				</tr>
+				<% if @profile.company_name %>
+					<tr>
+					<th>Company</th>
+						<td><%= @profile.company_name %></td>
+					</tr>
+				<% end %>
 			</table>
 			<div class="profile-text-area-heading">
 				<strong>Job Description</strong>
 			</div>
-			<%= @profile.career_details %>
-			</div>
+				<%= @profile.career_details %>
 	</div>
 	
 	<div class="col-md-4">

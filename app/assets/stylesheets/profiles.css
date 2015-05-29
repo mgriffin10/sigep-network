@@ -25,13 +25,14 @@
 	padding: 4px 0px;
 	border-top: none;
 	line-height: 1.2;
+	max-width: 40px;
 }
 
 .profile-table > tbody > tr > th {
 	padding: 4px 0px;
 	border-top: none;
 	line-height: 1.2;
-	max-width: 15px;
+	max-width: 20px;
 }
 
 .profile-text-area-heading {
