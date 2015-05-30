@@ -9,11 +9,11 @@
 	<%= f.text_field :last_name, class: 'form-control', placeholder: "Last name", required: true %>
 </div>
 <div class="form-group">
-	<%= f.label :industry, "Industry" %>
+	<%= f.label :industry, "Industry/Field" %>
 	<%= f.select :industry, @industries, {}, {class: 'form-control'} %>
 </div>
 <div class="form-group">
-	<%= f.label :company_name, "Company Name" %>
+	<%= f.label :company_name, "Company/Organiation Name" %>
 	<%= f.text_field :company_name, class: 'form-control', placeholder: "Company name" %>
 </div>
 <div class="form-group">
@@ -47,6 +47,10 @@
 <div class="form-group">
 	<%= f.label :linkedin_link, "LinkedIn Link" %>
 	<%= f.text_field :linkedin_link, class: 'form-control', placeholder: "http:// " %>
+</div>
+<div class="form-group">
+	<%= f.label :facebook_link, "Facebook Link" %>
+	<%= f.text_field :facebook_link, class: 'form-control', placeholder: "http:// " %>
 </div>
 <div class="form-group">
 	<%= f.label :avatar, "Profile Picture" %>
