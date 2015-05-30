@@ -11,11 +11,19 @@
 			<tr><th>Last Update:</th></tr>
 			<tr><td><%= @profile.updated_at.to_time.strftime('%B %e, %Y at %l:%M %p') %></td></tr>
 		</table>
+		<div class="connect-bar">
+			<% if !@profile.linkedin_link.blank? || !@profile.facebook_link.blank? %>
+			<%= mail_to @profile.email, image_tag('email-icon.png', :alt => 'mail') %>
+				<% if !@profile.linkedin_link.blank?%>
+					<%= link_to image_tag('linkedin-icon.png', :alt => 'linkedin'), @profile.linkedin_link %>
+				<% end %>
+				<% if !@profile.facebook_link.blank?%>
+					<%= link_to image_tag('facebook-icon.png', :alt => 'facebook'), @profile.facebook_link %>
+				<% end %>
+			<% end %>
+		</div>
 		<% if !@user.blank? && @profile.user_id == @user.id %>
 			<%= link_to "Edit Profile", {:action => 'edit', :id => @profile.id}, class: "btn btn-default" %>
-		<% end %>
-		<% if @profile.linkedin_link %>
-			<%= link_to "LinkedIn Profile", @profile.linkedin_link %>
 		<% end %>
 	</div>
 
@@ -46,19 +54,19 @@
 		<div class="row">
 			<h3 class="table-title">Professional Details</h3>
 			<table class="table profile-table">
-				<% if @profile.advanced_degrees %>
+				<% if !@profile.advanced_degrees.blank? %>
 					<tr>
 					<th>Advanced Degree</th>
 						<td><%= @profile.advanced_degrees %></td>
 					</tr>
 				<% end %>
 				<tr>
-				<th>Industry</th>
+				<th>Industry/Field</th>
 					<td><%= @profile.industry %></td>
 				</tr>
-				<% if @profile.company_name %>
+				<% if !@profile.company_name.blank? %>
 					<tr>
-					<th>Company</th>
+					<th>Company/Organization</th>
 						<td><%= @profile.company_name %></td>
 					</tr>
 				<% end %>
