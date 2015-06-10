@@ -1,5 +1,5 @@
 <div class"profiles index">
-	<h2 class="profile-title">Profiles</h2>
+	<h2 class="profile-title">Network</h2>
 	<%= form_tag({controller: 'profiles', action: 'search'}, class: 'form-inline profile-search-bar') do %>
 	<div class="form-group">
 	<%= label :q, "Profiles" %>
@@ -13,7 +13,6 @@
 			<th>Industry</th>
 			<th>Class Year</th>
 			<th>Location</th>
-			<th>Country</th>
 			<th>Email Address</th>
 			<th>Last Updated</th>
 			<th>Profile</th>				
@@ -25,7 +24,6 @@
 			<td><%= profile.class_year %></td>			
 			<td class="center"><%= profile.residence_city %><%= ", " if !profile.residence_state.blank? %>
 								<%= profile.residence_state %></td>
-			<td class="center"><%= profile.residence_country %></td>			   	
 			<td class="center"><%= profile.email %></td>
 			<td class="center"><%= profile.updated_at.to_time.strftime('%B %e, %Y') %></td>			
 			<td class="actions">

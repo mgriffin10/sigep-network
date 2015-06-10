@@ -50,8 +50,8 @@ class Profile < ActiveRecord::Base
   						 		:length => {:maximum => 50}
 
   # Residence Country
-  	validates :residence_country, 	:presence => true,
-  						 			:length => {:maximum => 50}
+  	validates :residence_country,
+  						      :length => {:maximum => 50}
 
   # This method associates the attribute ":avatar" with a file attachment
   has_attached_file :avatar, styles: {
