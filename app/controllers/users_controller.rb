@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 	    	flash[:notice] = "User account created successfully. You are now logged in."
         flash[:status] = "alert-success"
 	    	session[:user_id] = @user.id
-	  		session[:email] = @user.email
+	  		session[:role] = @user.role
 			  redirect_to(:controller => 'profiles', :action => 'new', :id => @user.id)
   		else
   			flash[:notice] = "Please log in."
@@ -50,6 +50,7 @@ class UsersController < ApplicationController
 
   def user_params
     	params.require(:user).permit(:email,
+                                  :role,
                                 	:password,
                                 	:password_confirmation)
 	end
