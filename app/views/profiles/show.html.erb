@@ -40,10 +40,12 @@
 					<td><%= @profile.residence_city %><%= ", " if !@profile.residence_state.blank? %>
 						<%= @profile.residence_state %></td>
 				</tr>
-				<tr>
-					<th>Country</th>
-					<td><%=	@profile.residence_country %></td>
-				</tr>
+				<% if !@profile.residence_country.blank? %>
+					<tr>
+						<th>Country</th>
+						<td><%=	@profile.residence_country %></td>
+					</tr>
+				<% end %>
 			</table>
 			<div class="profile-text-area-heading">
 				<strong>Biography</strong>
