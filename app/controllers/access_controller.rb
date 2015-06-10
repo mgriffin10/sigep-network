@@ -20,7 +20,7 @@ class AccessController < ApplicationController
   	end
   	if authorized_user
   		session[:user_id] = authorized_user.id
-  		session[:email] = authorized_user.email
+      session[:role] = authorized_user.role
   		flash[:notice] = "You are now signed in."
       flash[:status] = "alert-success"
   		redirect_to(:controller => 'main', :action => 'index')
@@ -33,7 +33,7 @@ class AccessController < ApplicationController
 
   def logout
   	session[:user_id] = nil
-  	session[:email] = nil
+    session[:role] = nil
   	flash[:notice] = "Signed out"
     flash[:status] = "alert-success"
   	redirect_to(:action => "login")

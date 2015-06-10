@@ -31,6 +31,10 @@ Rails.application.configure do
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
 
+  # Enables local precompilation
+  # See for details: http://guides.rubyonrails.org/asset_pipeline.html
+  config.assets.prefix = "/dev-assets"
+
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.

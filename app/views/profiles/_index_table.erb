@@ -1,0 +1,27 @@
+<table class="table table-condensed table-hover" summary="Profile list">
+		<tr class="header">
+			<th>Profile</th>
+			<th>Name</th>
+			<th>Industry</th>
+			<th>Class Year</th>
+			<th>Location</th>
+			<th>Email Address</th>
+			<th>Last Updated</th>
+			<th>Profile</th>				
+		</tr>
+		<% @profiles.each do |profile| %>
+		<tr class="<%= cycle('odd', 'even') %>">
+			<td><%= link_to image_tag(profile.avatar.url(:thumb)), {:action => 'show', :id => profile.id} %></td>
+			<td><%= profile.first_name + " " + profile.last_name %></td>
+			<td><%= profile.industry %></td>
+			<td><%= profile.class_year %></td>			
+			<td class="center"><%= profile.residence_city %><%= ", " if !profile.residence_state.blank? %>
+								<%= profile.residence_state %></td>
+			<td class="center"><%= profile.email %></td>
+			<td class="center"><%= profile.updated_at.to_time.strftime('%B %e, %Y') %></td>			
+			<td class="actions">
+				<%= link_to("View", {:action => 'show', :id => profile.id}, :class => 'btn btn-primary') %>
+			</td>
+		</tr>
+		<% end %>
+	</table>

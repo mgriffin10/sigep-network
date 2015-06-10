@@ -7,4 +7,8 @@ module ApplicationHelper
 	def profile_exists?
 		!Profile.where(:user_id => session[:user_id]).blank?
 	end
+
+	def student?
+		session[:role] == "student"
+	end
 end

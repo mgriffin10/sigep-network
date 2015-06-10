@@ -18,11 +18,16 @@ class ProfilesController < ApplicationController
   def show
     if params[:user_id]
       user_id = params[:id]
+      sync_email(user_id)
       @user = User.find(user_id)
       profile_id = lookup_profile_id(user_id)
       @profile = Profile.find(profile_id)
     else
-      @profile = Profile.find(params[:id])
+      begin
+        @profile = Profile.find(params[:id])
+      rescue
+        redirect_to(:action => 'index')
+      end
     end
   end
 
@@ -46,7 +51,16 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-     @profile = Profile.find(params[:id])
+    if params[:user_id]
+      @profile = Profile.find(lookup_profile_id(params[:id]))
+    else
+      @profile = Profile.find(params[:id])
+    end
+    if session[:user_id] != @profile.user_id
+        flash[:notice] = "Invalid Access: you are not authorized to edit this profile."
+        flash[:status] = "alert-warning"
+        redirect_to(:action => 'index')
+    end
   end
 
   def update
@@ -90,6 +104,18 @@ class ProfilesController < ApplicationController
                                     :facebook_link,                              
                                     :avatar)
 	end
+
+  def sync_email(user_id)
+    # Ensures that the profile's email is the same as the user's email
+    user = User.find(user_id)
+    profile = Profile.find( lookup_profile_id(user_id) )
+    if user.email != profile.email
+      if !profile.update_attributes(:email => user.email)
+        flash[:notice] = "Profile email failed to sync."
+        flash[:status] = "alert-danger"
+      end
+    end
+  end
 
   def lookup_profile_id(user_id)
     profile = Profile.where(:user_id => user_id).first

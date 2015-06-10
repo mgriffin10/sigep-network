@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+
   def show
     @user = User.find(params[:id])
   end
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 	    	flash[:notice] = "User account created successfully. You are now logged in."
         flash[:status] = "alert-success"
 	    	session[:user_id] = @user.id
-	  		session[:email] = @user.email
+	  		session[:role] = @user.role
 			  redirect_to(:controller => 'profiles', :action => 'new', :id => @user.id)
   		else
   			flash[:notice] = "Please log in."
@@ -33,20 +33,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @profile = Profile.where(:user_id => @user.id)
     if (user_params[:password] == user_params[:password_confirmation] && @user.authenticate(user_params[:password]))
-      if !@profile.empty?
-        if (@user.update_attributes(user_params) && @profile.update_attributes(:email => @user.email))
-            flash[:notice] = "User information updated successfully."
-            flash[:status] = "alert-success"
-            redirect_to(:action => 'show', :id => @user.id)
-        end
-      else
-        if @user.update_attributes(user_params)
-            flash[:notice] = "User information updated successfully."
-            flash[:status] = "alert-success"
-            redirect_to(:action => 'show', :id => @user.id)
-        end
+      if (@user.update_attributes(user_params))
+          flash[:notice] = "User information updated successfully."
+          flash[:status] = "alert-success"
+          redirect_to(:action => 'show', :id => @user.id)
       end
     else
       flash[:notice] = "Invalid password."
@@ -59,6 +50,7 @@ class UsersController < ApplicationController
 
   def user_params
     	params.require(:user).permit(:email,
+                                  :role,
                                 	:password,
                                 	:password_confirmation)
 	end

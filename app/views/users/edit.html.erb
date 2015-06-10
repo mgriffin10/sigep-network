@@ -1,5 +1,6 @@
-<h2>Edit User</h2>
+<h2>Edit Login Email</h2>
+<p>Your email address is used to uniquely identify your account. Any changes to your email address will change your login email. Enter your password and password confirmation below to authenticate the change.</p>
 <%= form_for(:user, :url => {:controller => 'users', :action => 'update', :id => @user.id}, :html => {:class => 'user-form'}) do |f| %>
 	<%= render(:partial => "form", :locals => {:f => f}) %>
-	<%= submit_tag("Edit User", :class => "btn btn-default") %>
+	<%= submit_tag("Edit Email", :class => "btn btn-default") %>
 <% end %>
