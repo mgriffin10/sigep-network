@@ -16,6 +16,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    
     if params[:user_id]
       user_id = params[:id]
       sync_email(user_id)
@@ -23,7 +24,11 @@ class ProfilesController < ApplicationController
       profile_id = lookup_profile_id(user_id)
       @profile = Profile.find(profile_id)
     else
-      @profile = Profile.find(params[:id])
+      begin
+        @profile = Profile.find(params[:id])
+      rescue
+        redirect_to(:action => 'index')
+      end
     end
   end
 
@@ -48,6 +53,11 @@ class ProfilesController < ApplicationController
 
   def edit
      @profile = Profile.find(params[:id])
+     if session[:user_id] != @profile.user_id
+        flash[:notice] = "Invalid Access: you are not authorized to edit this profile."
+        flash[:status] = "alert-warning"
+        redirect_to(:action => 'index')
+     end
   end
 
   def update
