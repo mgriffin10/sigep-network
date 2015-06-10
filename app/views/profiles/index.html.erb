@@ -9,6 +9,7 @@
 	<% end %>
 	<table class="table table-condensed table-hover" summary="Profile list">
 		<tr class="header">
+			<th>Profile</th>
 			<th>Name</th>
 			<th>Industry</th>
 			<th>Class Year</th>
@@ -19,6 +20,7 @@
 		</tr>
 		<% @profiles.each do |profile| %>
 		<tr class="<%= cycle('odd', 'even') %>">
+			<td><%= image_tag profile.avatar.url(:thumb) %></td>
 			<td><%= profile.first_name + " " + profile.last_name %></td>
 			<td><%= profile.industry %></td>
 			<td><%= profile.class_year %></td>			
