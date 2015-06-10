@@ -10,10 +10,7 @@
 .profile-search-bar {
 	float:right;
 	max-width: 330px;
-}
-
-.profile-title {
-	float: left;
+	padding: 20px 0px;
 }
 
 .table-title {
