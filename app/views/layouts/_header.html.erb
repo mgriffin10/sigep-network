@@ -18,9 +18,9 @@
       
       <ul class="nav navbar-nav">
         <% if profile_exists? %>
-           <li class="active"><%= link_to("Profile", :controller=> "profiles", :action => "show", :id => session[:user_id], :user_id => true) %><span class="sr-only">(current)</span></li>
+           <li><%= link_to("Profile", :controller=> "profiles", :action => "show", :id => session[:user_id], :user_id => true) %><span class="sr-only">(current)</span></li>
         <% else %>
-          <li class="active"><%= link_to("Complete Profile", :controller => "profiles", :action => "new", :id => session[:user_id]) %><span class="sr-only">(current)</span></li>
+          <li><%= link_to("Complete Profile", :controller => "profiles", :action => "new", :id => session[:user_id]) %><span class="sr-only">(current)</span></li>
         <% end %>
         <li><%= link_to("Network", :controller => "profiles") %></li>
       </ul>

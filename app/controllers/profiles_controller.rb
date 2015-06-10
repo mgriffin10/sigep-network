@@ -18,6 +18,7 @@ class ProfilesController < ApplicationController
   def show
     if params[:user_id]
       user_id = params[:id]
+      sync_email(user_id)
       @user = User.find(user_id)
       profile_id = lookup_profile_id(user_id)
       @profile = Profile.find(profile_id)
@@ -90,6 +91,18 @@ class ProfilesController < ApplicationController
                                     :facebook_link,                              
                                     :avatar)
 	end
+
+  def sync_email(user_id)
+    # Ensures that the profile's email is the same as the user's email
+    user = User.find(user_id)
+    profile = Profile.find( lookup_profile_id(user_id) )
+    if user.email != profile.email
+      if !profile.update_attributes(:email => user.email)
+        flash[:notice] = "Profile email failed to sync."
+        flash[:status] = "alert-danger"
+      end
+    end
+  end
 
   def lookup_profile_id(user_id)
     profile = Profile.where(:user_id => user_id).first

@@ -33,20 +33,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @profile = Profile.where(:user_id => @user.id)
     if (user_params[:password] == user_params[:password_confirmation] && @user.authenticate(user_params[:password]))
-      if !@profile.empty?
-        if (@user.update_attributes(user_params) && @profile.update_attributes(:email => @user.email))
-            flash[:notice] = "User information updated successfully."
-            flash[:status] = "alert-success"
-            redirect_to(:action => 'show', :id => @user.id)
-        end
-      else
-        if @user.update_attributes(user_params)
-            flash[:notice] = "User information updated successfully."
-            flash[:status] = "alert-success"
-            redirect_to(:action => 'show', :id => @user.id)
-        end
+      if (@user.update_attributes(user_params))
+          flash[:notice] = "User information updated successfully."
+          flash[:status] = "alert-success"
+          redirect_to(:action => 'show', :id => @user.id)
       end
     else
       flash[:notice] = "Invalid password."
