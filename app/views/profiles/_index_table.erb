@@ -11,7 +11,7 @@
 		</tr>
 		<% @profiles.each do |profile| %>
 		<tr class="<%= cycle('odd', 'even') %>">
-			<td><%= image_tag profile.avatar.url(:thumb) %></td>
+			<td><%= link_to image_tag(profile.avatar.url(:thumb)), {:action => 'show', :id => profile.id} %></td>
 			<td><%= profile.first_name + " " + profile.last_name %></td>
 			<td><%= profile.industry %></td>
 			<td><%= profile.class_year %></td>			
