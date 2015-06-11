@@ -1,7 +1,6 @@
 <div class"profiles index">
 		<%= form_tag({:action => 'search'}, class: 'form-inline profile-search-bar') do %>
 		<div class="form-group">
-	  	<%= label_tag(:q, "Profiles") %>
 	  	<%= text_field_tag(:q, nil, class: 'form-control', placeholder: "Search") %>
 	  	<%= submit_tag("Search", :class => "btn btn-default") %>
 	  	</div>
