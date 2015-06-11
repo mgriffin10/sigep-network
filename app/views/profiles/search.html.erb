@@ -1,9 +1,0 @@
-<div class"profiles index">
-		<%= form_tag({:action => 'search'}, class: 'form-inline profile-search-bar') do %>
-		<div class="form-group">
-	  	<%= text_field_tag(:q, nil, class: 'form-control', placeholder: "Search") %>
-	  	<%= submit_tag("Search", :class => "btn btn-default") %>
-	  	</div>
-	<% end %>
-		<%= render(:partial => "index_table") %>
-</div>

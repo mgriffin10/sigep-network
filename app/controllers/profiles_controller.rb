@@ -3,16 +3,18 @@ class ProfilesController < ApplicationController
  before_action :confirm_logged_in
  before_action :set_dropdown_arrays
 
-  def index
-    @profiles = Profile.all
-  end
+ helper_method :sort_column, :sort_direction
 
-  def search
-    if !params[:q].match(/\A[0-9]+\Z/)
-      @profiles = Profile.search(params[:q])
+  def index
+    if !params[:filter].blank?
+      if !params[:filter].match(/\A[0-9]+\Z/)
+        @profiles = Profile.search(params[:filter])
+      else
+        @profiles = Profile.search_year(params[:filter])
+      end
     else
-      @profiles = Profile.search_year(params[:q])
-    end
+      @profiles = Profile.order(sort_column + " " + sort_direction)
+    end  
   end
 
   def show
@@ -103,7 +105,8 @@ class ProfilesController < ApplicationController
                                     :email,
                                     :linkedin_link, 
                                     :facebook_link,                              
-                                    :avatar)
+                                    :avatar,
+                                    :profiles)
 	end
 
   def sync_email(user_id)
@@ -121,6 +124,14 @@ class ProfilesController < ApplicationController
   def lookup_profile_id(user_id)
     profile = Profile.where(:user_id => user_id).first
     profile.id
+  end
+
+  def sort_column
+    params[:sort] || "last_name"
+  end
+
+  def sort_direction
+    params[:direction] || "asc"
   end
 
   def set_dropdown_arrays

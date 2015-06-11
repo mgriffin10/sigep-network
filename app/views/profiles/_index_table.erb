@@ -1,13 +1,13 @@
 <table class="table table-condensed table-hover" summary="Profile list">
 		<tr class="header">
 			<th>Profile</th>
-			<th>Name</th>
-			<th>Industry</th>
-			<th>Class Year</th>
-			<th>Location</th>
+			<th><%= sortable "last_name", "Name" %></th>
+			<th><%= sortable "industry", "Industry" %></th>
+			<th><%= sortable "class_year", "Class Year" %></th>
+			<th><%= sortable "residence_city", "Location" %></th>
 			<th>Email Address</th>
-			<th>Last Updated</th>
-			<th>Profile</th>				
+			<th><%= sortable "updated_at", "Last Updated" %></th>
+			<th></th>				
 		</tr>
 		<% @profiles.each do |profile| %>
 		<tr class="<%= cycle('odd', 'even') %>">
