@@ -5,14 +5,16 @@ class Profile < ActiveRecord::Base
  # =========== SCOPES ============
 
  scope :search, lambda { |query|
-  where( ["first_name LIKE ? 
-          OR last_name LIKE ?
-          OR industry LIKE ?
-          OR email LIKE ?
-          OR residence_city LIKE ?
-          OR residence_country LIKE ?
-          OR residence_state LIKE ?", 
+  where( ["first_name ILIKE ? 
+          OR last_name ILIKE ?
+          OR industry ILIKE ?
+          OR college_major_minor ILIKE ?
+          OR email ILIKE ?
+          OR residence_city ILIKE ?
+          OR residence_country ILIKE ?
+          OR residence_state ILIKE ?", 
           "%#{query}%", 
+          "%#{query}%",
           "%#{query}%",
           "%#{query}%",
           "%#{query}%",
@@ -41,9 +43,13 @@ class Profile < ActiveRecord::Base
   						 	:length => {:maximum => 50}
   
   # Class Year
-	validates :class_year, 	:presence => true,
+	  validates :class_year, 	:presence => true,
 						   	:length => {:maximum => 25},
  						   	:numericality => {:only_integer => true}
+
+  # Major/Minor
+    validates :college_major_minor, :presence => true,
+                :length => {:maximum => 50 }
 
   # Residence City
   	validates :residence_city, 	:presence => true,
