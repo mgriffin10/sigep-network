@@ -35,6 +35,11 @@
 				<th>Class Year</th>
 					<td><%= @profile.class_year %></td>
 				</tr>
+				<% if !@profile.college_major_minor.blank? %>
+					<th>Major/Minor</th>
+						<td><%= @profile.college_major_minor %></td>
+					</tr>
+				<% end %>
 				<tr>
 					<th>Location</th>
 					<td><%= @profile.residence_city %><%= ", " if !@profile.residence_state.blank? %>

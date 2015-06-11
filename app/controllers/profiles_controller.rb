@@ -91,6 +91,7 @@ class ProfilesController < ApplicationController
     params.require(:profile).permit(:first_name,
                                     :last_name,
                                     :class_year,
+                                    :college_major_minor,
                                     :residence_state,
                                     :residence_city,
                                     :residence_country,
