@@ -1,8 +1,12 @@
 <div class"profiles index">
-	<%= form_tag({controller: 'profiles', action: 'index'}, class: 'form-inline profile-search-bar') do %>
-	<div class="form-group">
-  	<%= text_field_tag :filter, nil, class: 'form-control', placeholder: "Search" %>
-  	<%= submit_tag("Search", :class => "btn btn-default") %>
+	<%= form_tag({controller: 'profiles', action: 'index'}, class: 'form-inline profile-search-bar-wrapper') do %>
+	<div class="form-group profile-search-bar">
+  	<%= text_field_tag :filter,
+  						nil, 
+  						class: 'form-control', 
+  						id: 'profile-search-text-field', 
+  						placeholder: "Search by name, industry, class year, location, email address etc." %>
+  	<%= submit_tag("Search", :class => "btn btn-default profile-search-button") %>
   	</div>
 	<% end %>
 	<%= render(:partial => "index_table") %>
