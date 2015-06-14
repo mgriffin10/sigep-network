@@ -4,7 +4,7 @@
 */
 
 .crest-watermark {
- 	background-image: url('crest-transparent.png');
+ 	background-image: image-url("crest-transparent.png");
  	background-repeat: no-repeat;
  	background-position: right bottom;
  	position: absolute;
