@@ -1,6 +1,6 @@
 
 <div class="login-wrapper">
-	<%= image_tag('gu-sigep.png', :class => "crest" ) %>
+	<%= image_tag('gu-sigep.png', :class => "gu-logo" ) %>
 	<%= form_tag({action: "attempt_login"}, method: "post", class: "form-signin") do %>
 		<h2 class="form-signin-heading">Please sign in</h2>
 		<%= text_field_tag 'email', nil, class: 'form-control', id: "email", placeholder: "Email Address", required: true %>
