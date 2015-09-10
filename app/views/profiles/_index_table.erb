@@ -1,8 +1,8 @@
 <table class="table table-condensed table-hover" summary="Profile list">
 		<tr class="header">
 			<th><%= sortable "last_name", "Name" %></th>
-			<th><%= sortable "industry", "Industry" %></th>
 			<th><%= sortable "class_year", "Class Year" %></th>
+			<th><%= sortable "industry", "Industry" %></th>
 			<th><%= sortable "residence_city", "Location" %></th>
 			<th>Email Address</th>
 			<th><%= sortable "updated_at", "Last Updated" %></th>
@@ -11,8 +11,8 @@
 		<% @profiles.each do |profile| %>
 		<tr class="<%= cycle('odd', 'even') %>">
 			<td><%= profile.first_name + " " + profile.last_name %></td>
-			<td><%= profile.industry %></td>
 			<td><%= profile.class_year %></td>			
+			<td><%= profile.industry %></td>
 			<td class="center"><%= profile.residence_city %><%= ", " if !profile.residence_state.blank? %>
 								<%= profile.residence_state %></td>
 			<td class="center"><%= profile.email %></td>
