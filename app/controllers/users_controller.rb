@@ -46,6 +46,27 @@ class UsersController < ApplicationController
     end
   end
   
+  def password_reset
+     @user_id = params[:id]
+  end
+
+  def post_password_reset
+    @user = User.find(params[:id])
+    if(params[:password] == params[:password_confirmation])
+      if(@user.update_attributes({:password => params[:password]}))
+         flash[:notice] = "Your password has been updated successfully."
+         flash[:status] = "alert-success"
+         redirect_to(:controller => 'access', :action => 'login')
+      else
+         redirect_to(:action => 'password_reset', :id => @user.id)
+      end
+    else
+      flash[:notice] = "Passwords do not match."
+      flash[:status] = "alert-danger"
+      redirect_to(:action => 'password_reset', :id => @user.id)
+    end
+  end
+
   private 
 
   def user_params
