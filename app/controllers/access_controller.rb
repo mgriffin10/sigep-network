@@ -39,4 +39,35 @@ class AccessController < ApplicationController
   	redirect_to(:action => "login")
   end
 
+  def password_reset_email
+    # password reset email form
+  end
+
+  def send_password_reset_email
+    user = User.find_by_email(params[:email])
+    if user
+      if( AccessMailer.password_reset_message().deliver_now )
+        flash[:notice] = "Email Sent Successfully."
+        flash[:status] = "alert-success"
+        redirect_to(:action => 'login')
+      else
+        flash[:notice] = "Error sending email. Please try again."
+        flash[:status] = "alert-danger"
+        redirect_to(:action => 'password_reset_email')
+      end
+    else
+      flash[:notice] = "Could not locate the user account associated with this email address."
+      flash[:status] = "alert-danger"
+      redirect_to(:action => 'password_reset_email')
+    end
+  end
+
 end
+
+
+
+
+
+
+
+
