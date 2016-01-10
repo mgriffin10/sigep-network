@@ -44,9 +44,9 @@ class AccessController < ApplicationController
   end
 
   def send_password_reset_email
-    user = User.find_by_email(params[:email])
-    if user
-      if( AccessMailer.password_reset_message().deliver_now )
+    @user = User.find_by_email(params[:email])
+    if @user
+      if( AccessMailer.password_reset_message(@user).deliver_now )
         flash[:notice] = "Email Sent Successfully."
         flash[:status] = "alert-success"
         redirect_to(:action => 'login')
