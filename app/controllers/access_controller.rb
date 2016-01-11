@@ -1,6 +1,6 @@
 class AccessController < ApplicationController
   
- before_action :confirm_logged_in, :except => [:login,:attempt_login,:logout]
+ before_action :confirm_logged_in, :except => [:login,:attempt_login,:logout, :password_reset_email, :send_password_reset_email]
 
   def index
     user_id = session[:user_id]
