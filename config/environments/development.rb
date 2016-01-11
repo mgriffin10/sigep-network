@@ -51,9 +51,8 @@ Rails.application.configure do
   # Mailer Configuration
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-
-  config.action_mailer.delivery_method = :smtp
   
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :port           => 1025, 
     :address        => 'localhost',
@@ -61,13 +60,12 @@ Rails.application.configure do
   }
 
   #   config.action_mailer.smtp_settings = {
-  #   :port           => 25, # or 2525
-  #   :address        => ENV['POSTMARK_SMTP_SERVER'],
-  #   :user_name      => ENV['POSTMARK_API_TOKEN'],
-  #   :password       => ENV['POSTMARK_API_TOKEN'],
-  #   :domain         => 'heroku.com',
-  #   :authentication => :plain, # or :plain for plain-text authentication
-  #   :enable_starttls_auto => false # or false for unencrypted connection
+  #     :port           => 587,
+  #     :address        => ENV['POSTMARK_SMTP_SERVER'],
+  #     :user_name      => ENV['POSTMARK_API_TOKEN'],
+  #     :password       => ENV['POSTMARK_API_TOKEN'],
+  #     :authentication => :plain, # or :plain for plain-text authentication
+  #     :enable_starttls_auto => true # or false for unencrypted connection
   # }
 
 end
