@@ -2,7 +2,7 @@ class AccessMailer < ApplicationMailer
 
 	def password_reset_message(user)
 		@user = user
-		@url = "http://localhost:3000/users/password_reset?id="
+		@url = "network.sigepgeorgetown.com/users/password_reset?id="
 	    mail(
 	      :to  => @user.email,
 	      :from => 'no-reply@sigepgeorgetown.com',

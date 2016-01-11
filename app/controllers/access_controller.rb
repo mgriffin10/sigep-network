@@ -63,11 +63,3 @@ class AccessController < ApplicationController
   end
 
 end
-
-
-
-
-
-
-
-
