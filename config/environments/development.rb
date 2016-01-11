@@ -13,9 +13,6 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -50,5 +47,25 @@ Rails.application.configure do
     :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
     :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']}
   }
+
+  # Mailer Configuration
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :port           => 1025, 
+    :address        => 'localhost',
+    :domain         => 'sigepgeorgetown.com'
+  }
+
+  #   config.action_mailer.smtp_settings = {
+  #     :port           => 587,
+  #     :address        => ENV['POSTMARK_SMTP_SERVER'],
+  #     :user_name      => ENV['POSTMARK_API_TOKEN'],
+  #     :password       => ENV['POSTMARK_API_TOKEN'],
+  #     :authentication => :plain, # or :plain for plain-text authentication
+  #     :enable_starttls_auto => true # or false for unencrypted connection
+  # }
 
 end
