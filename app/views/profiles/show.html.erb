@@ -55,7 +55,7 @@
 			<div class="profile-text-area-heading">
 				<strong>Biography</strong>
 			</div>
-			<%=	@profile.bio %>
+			<%=	simple_format(@profile.bio) %>
 		</div>
 		<br>
 		<div class="row">
@@ -81,7 +81,7 @@
 			<div class="profile-text-area-heading">
 				<strong>Job Description</strong>
 			</div>
-				<%= @profile.career_details %>
+				<%= simple_format(@profile.career_details) %>
 	</div>
 	
 	<div class="col-md-4">

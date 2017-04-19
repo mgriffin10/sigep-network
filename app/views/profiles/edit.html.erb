@@ -4,5 +4,5 @@
 				:url => {:action => 'update', :id => @profile.id},
 				:html => {:class => 'profile-form'}) do |f| %>
 		<%= render(:partial => "form", :locals => {:f => f}) %>
-		<%= submit_tag("Edit Profile", :class => "btn btn-default") %>
+		<%= submit_tag("Save Profile", :class => "btn btn-default") %>
 <% end %>
