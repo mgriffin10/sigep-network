@@ -50,22 +50,17 @@ Rails.application.configure do
 
   # Mailer Configuration
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :port           => 1025, 
-    :address        => 'localhost',
-    :domain         => 'sigepgeorgetown.com'
+    :port           => 587,
+    :address        => "smtp.mailgun.org",
+    :domain         => ENV['MAILGUN_DOMAIN'],
+    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+    :authentication => :plain, # or :plain for plain-text authentication
+    :enable_starttls_auto => true # or false for unencrypted connection
   }
 
-  #   config.action_mailer.smtp_settings = {
-  #     :port           => 587,
-  #     :address        => ENV['POSTMARK_SMTP_SERVER'],
-  #     :user_name      => ENV['POSTMARK_API_TOKEN'],
-  #     :password       => ENV['POSTMARK_API_TOKEN'],
-  #     :authentication => :plain, # or :plain for plain-text authentication
-  #     :enable_starttls_auto => true # or false for unencrypted connection
-  # }
+    
 
 end
